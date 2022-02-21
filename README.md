@@ -1,6 +1,8 @@
 # nastlang
 
-nastlang is a stack based programming language
+naichinger - stackbased - language
+
+nastlang is a stack based programming language.
 
 ## examples
 

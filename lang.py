@@ -1,8 +1,11 @@
+from threading import stack_size
 from typing import List
 import sys
 
 def parse_lang(inp: str):
-    lang_str = inp#.replace("\n"," ")
+    #lang_str = ' '.join([i[:i.index("#")] if '#' in i else i for i in inp.split("\n")])
+    #.replace("\n"," ")
+    lang_str = inp
     start_block = ["if", "while"]
     lang = []
 
@@ -83,7 +86,9 @@ def print_method(val):
         print(val,end='')
 
 stack = []
+states = []
 def interpret_lang(inp: List[str],vars):
+    global stack
     arithmetic = ["mul", "div", "add", "sub"]
     comperators = ["greater", "greaterThan", "less", "lessThan"]
     idx = 0
@@ -96,6 +101,18 @@ def interpret_lang(inp: List[str],vars):
             stack.append(apply_comprators(con_val(stack.pop(), vars),con_val(stack.pop(), vars), i))
         elif(i == "print"):
             print_method(con_val(stack.pop(), vars))
+        elif(i == "duplicate"):
+            v = stack.pop()
+            stack.append(v)
+            stack.append(v)
+        elif(i == "pop"):
+            stack.pop()
+        elif(i == "save"):
+            states.append(stack.copy())
+        elif(i == "restore"):
+            stack = states.pop()
+        elif(i == "size"):
+            stack.append(len(stack))
         elif(i == "if"):
             if(con_val(stack.pop(), vars) != 0):
                 interpret_lang(inp[idx],vars)
@@ -113,7 +130,7 @@ def interpret_lang(inp: List[str],vars):
         else:
             stack.append(parse_val(i))
 
-#lang = parse_lang(open("fib.lang").read())
+#lang = parse_lang(open("examples/fib.lang").read())
 lang = parse_lang(open(sys.argv[1]).read())
 #print(lang)
 interpret_lang(lang,{})

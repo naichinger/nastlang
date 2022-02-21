@@ -1,0 +1,17 @@
+5 4 3 2 1 save
+
+size while
+    duplicate print
+    pop
+    size
+end
+"\n" print
+
+restore
+
+size while
+    duplicate print
+    pop
+    size
+end
+"\n" print
