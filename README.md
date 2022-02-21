@@ -4,6 +4,24 @@ naichinger - stackbased - language
 
 nastlang is a stack based programming language.
 
+## Docs
+
+add: takes two integers from stack and puts result on stack
+mul: same as add
+div: same as add
+sub: same as add
+
+if - end: takes one element from stack if 0, block is not entered
+while - end: takes with every iteration one value from stack 0 loop is not continued
+
+! : takes two values from stack (bsp: 0 var ! # stores 0 in var) 
+
+
+print: takes one element from stack and prints it
+save: saves state of stack
+restore: restores befores saved stack
+size: puts length of stack onto the stack
+
 ## examples
 
 ### fibonacci
