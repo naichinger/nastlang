@@ -1,0 +1,10 @@
+1 2 add print
+"\n"    print
+2 3 mul print
+"\n"    print
+4 3 sub print
+"\n"    print
+9 3 div print
+"\n"    print
+
+2 3 add 5 mul 5 sub print

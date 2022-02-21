@@ -1,0 +1,10 @@
+"hello world" print
+"\n"          print
+
+0 if
+"ENTERED 0" print
+end
+
+1 if
+"ENTERD 1" print
+end

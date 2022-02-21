@@ -1,0 +1,13 @@
+0 a !
+1 b !
+
+15 len !
+
+len while
+    a print
+    " " print
+    b c !
+    a b add b !
+    c a !
+    len 1 sub len ! len
+end
