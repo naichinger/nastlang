@@ -1,0 +1,9 @@
+1 n !
+
+1 while
+    n n mul print
+    "\n" print
+
+    n 1 add n !
+    n 10 lessThan
+end
